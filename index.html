@@ -119,6 +119,43 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;colo
 .diffs{padding-left:20px;color:var(--muted);font-size:13px}
 .diffs li{margin:4px 0}
 
+/* 自迭代治理面板（状态条，视觉次要） */
+.gov{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin:22px 0 4px;position:relative}
+.gov::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:2px;
+  background:linear-gradient(180deg,var(--amber),var(--teal))}
+.gov-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.gov-h{font-size:13px;letter-spacing:.14em;color:var(--muted);font-weight:600;text-transform:uppercase}
+.gov-badge{font-size:12px;font-weight:600;border-radius:999px;padding:3px 11px;white-space:nowrap}
+.gov-badge.codex{color:var(--amber);background:rgba(224,164,88,.12);border:1px solid var(--amber)}
+.gov-badge.degraded{color:var(--muted);background:var(--surface2);border:1px solid var(--line)}
+.gov-caption{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.gov-digest{margin:12px 0 4px;padding:8px 0 8px 12px;border-left:2px solid var(--line);
+  color:var(--muted);font-family:"Songti SC","Noto Serif SC",serif;font-size:14px;line-height:1.7}
+.gov-metrics{display:flex;flex-wrap:wrap;gap:10px 22px;margin:12px 0 6px}
+.gov-metric{display:flex;flex-direction:column;gap:1px;font-variant-numeric:tabular-nums}
+.gov-num{font-size:18px;font-weight:700;color:var(--text)}
+.gov-num .gov-sub{font-size:11px;font-weight:400;color:var(--faint);margin-left:5px}
+.gov-mlabel{font-size:11px;color:var(--faint);letter-spacing:.04em}
+.gov-metric.gov-alert .gov-num{color:var(--bear)}
+.gov-metric.gov-alert .gov-mlabel{color:var(--bear)}
+.gov-approvals{margin-top:10px}
+.gov-h3{font-size:11px;letter-spacing:.1em;color:var(--faint);font-weight:600;
+  text-transform:uppercase;margin-bottom:8px}
+.gov-empty{font-size:13px;color:var(--faint)}
+.gov-appr{border:1px solid var(--line);border-radius:8px;background:var(--surface2);
+  padding:9px 11px;margin-bottom:8px}
+.gov-appr:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.gov-appr-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.gov-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;font-weight:700;
+  color:var(--amber);background:rgba(224,164,88,.12);border-radius:4px;padding:1px 7px;letter-spacing:.05em}
+.gov-action{font-size:12px;color:var(--text);font-weight:600}
+.gov-trend{font-size:12px;color:var(--muted)}
+.gov-rationale{font-size:12px;color:var(--muted);margin:5px 0 3px;line-height:1.55}
+.gov-hint{font-size:11px;color:var(--teal);font-variant-numeric:tabular-nums}
+.gov-foot{margin-top:12px;font-size:11px;color:var(--faint);line-height:1.6;border-top:1px solid var(--line);padding-top:10px}
+@media(max-width:720px){.gov-metrics{gap:8px 16px}}
+
 /* footer */
 .foot{margin-top:36px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--faint)}
 .foot h2{font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
@@ -141,6 +178,21 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;colo
       <span class="mchip">数据降级 <b>0</b> 条（显式）</span>
     </div>
   </header>
+
+  <section class="gov" aria-label="自迭代治理状态">
+  <div class="gov-top">
+    <h2 class="gov-h">自迭代治理</h2>
+    <span class="gov-badge codex">🧠 Codex 治理大脑</span>
+    <span class="gov-caption">模型 gpt-5.5 · 数据日 2026-07-05 · 生成 2026-07-05T15:33:17.656Z</span>
+  </div>
+  <blockquote class="gov-digest">今日无已裁决预测，Brier 与校准 gap 均不可用；拒绝再校准并维持 k=1。趋势池新增 13 条、预测事件新增 52 条且无降级，但缺少具体背离、剧集候选或 thesis 破裂证据，因此不发起额外治理动作。</blockquote>
+  <div class="gov-metrics"><span class="gov-metric"><b class="gov-num">—</b><span class="gov-mlabel">校准系数 k</span></span><span class="gov-metric"><b class="gov-num">1</b><span class="gov-mlabel">自动生效</span></span><span class="gov-metric"><b class="gov-num">0</b><span class="gov-mlabel">升级</span></span><span class="gov-metric"><b class="gov-num">0</b><span class="gov-mlabel">拒绝</span></span><span class="gov-metric"><b class="gov-num">0</b><span class="gov-mlabel">越界</span></span></div>
+  <div class="gov-approvals">
+    <h3 class="gov-h3">待人工审批</h3>
+    <p class="gov-empty">无待审批项</p>
+  </div>
+  <p class="gov-foot">确定性引擎产出事实 → Codex 神谕产出判断 → 路由器执行有界决策/升级结构性/拒绝越界；系统只从真实裁决结果学习，预测永不自动进基率。</p>
+</section>
 
   <section class="overview">
     <div class="panel">
