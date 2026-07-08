@@ -163,6 +163,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;colo
 .foot li{margin:3px 0}
 .section-title{font-size:13px;letter-spacing:.14em;color:var(--muted);font-weight:600;
   margin:32px 0 4px;text-transform:uppercase}
+
+.validation{margin:16px 0 0;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;line-height:1.55}
+.validation.not-proven{color:#241707;background:rgba(224,164,88,.18);border:1px solid var(--amber)}
+.validation.failed{color:#2a0606;background:rgba(201,111,111,.2);border:1px solid var(--bear)}
 </style>
 </head>
 <body>
@@ -178,6 +182,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;colo
       <span class="mchip">数据降级 <b>0</b> 条（显式）</span>
     </div>
   </header>
+
+  <div class="validation not-proven">⚠ 验证状态:NOT-PROVEN · 已裁决 0 · 首批断言到期 2026-10-05 · 依据设计合同 §2.2,本页信念分与概率未经前向验证</div>
 
   <section class="gov" aria-label="自迭代治理状态">
   <div class="gov-top">
