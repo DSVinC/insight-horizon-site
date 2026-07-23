@@ -1,0 +1,10 @@
+{
+  "governance_level": "bootstrap",
+  "governance_classification": "active_static_site",
+  "task_dirs": [],
+  "test_commands": [],
+  "status_files": [],
+  "dashboard_files": [],
+  "design_note_dir": "docs",
+  "exception_dir": "docs/governance/exceptions"
+}
